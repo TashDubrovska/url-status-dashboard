@@ -18,7 +18,7 @@ describe ('Application logic', () => {
     it('should add a new URL', () => {
         let initialUrl = {
             url: '/test',
-            status: 'uvaliable'
+            status: 'unavailable'
         }
 
         let state = List.of(initialUrl);
