@@ -10,7 +10,16 @@
     "type": "git",
     "url": "git+https://github.com/TashDubrovska/url-status-dashboard.git"
   },
-  "author": "Nataliya Dubrovska",
+  "contributors": [
+    {
+        "name": "Nataliya Dubrovska",
+        "email": "n.dubrovska89@gmail.com"
+    },
+    {
+        "name": "Frank Long",
+        "email": "frank.long@marks-and-spencer.com"
+    }
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/TashDubrovska/url-status-dashboard/issues"
