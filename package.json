@@ -12,12 +12,12 @@
   },
   "contributors": [
     {
-        "name": "Nataliya Dubrovska",
-        "email": "n.dubrovska89@gmail.com"
+      "name": "Nataliya Dubrovska",
+      "email": "n.dubrovska89@gmail.com"
     },
     {
-        "name": "Frank Long",
-        "email": "frank.long@marks-and-spencer.com"
+      "name": "Frank Long",
+      "email": "frank.long@marks-and-spencer.com"
     }
   ],
   "license": "ISC",
@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "immutable": "^3.8.1",
-    "redux": "^3.7.2"
+    "redux": "^3.7.2",
+    "request-promise": "^4.2.1"
   }
 }

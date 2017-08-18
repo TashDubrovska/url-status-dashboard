@@ -1,15 +1,15 @@
-const {List, Map} = require('immutable');
-const {setUrls, addUrl, removeUrl} = require('./core');
+const {List} = require('immutable');
+const {setUrls, addUrl, removeUrl, updateStatus} = require('./core');
 
 describe ('Application logic', () => {
     it('should set URLs', () => {
         let url = {
-            ulr: '/index',
-            isUp: true
+            url: '/index',
+            status: 'updating'
         };
 
-        let state = List();
-        let entries = List.of(url);
+        let state = new List();
+        let entries = ['/index'];
         let nextState = setUrls(state, entries);
 
         expect(nextState).toEqual(List.of(url));
@@ -18,17 +18,16 @@ describe ('Application logic', () => {
     it('should add a new URL', () => {
         let initialUrl = {
             url: '/test',
-            isUp: false
+            status: 'uvaliable'
         }
-        let url = {
-            url: '/index',
-            isUp: true
-        };
 
         let state = List.of(initialUrl);
-        let nextState = addUrl(state, url);
+        let nextState = addUrl(state, '/index');
 
-        expect(nextState).toEqual(List.of(initialUrl, url));
+        expect(nextState).toEqual(List.of(initialUrl, {
+            url: '/index',
+            status: 'updating'
+        }));
     });
 
     it('should not add duplicate URLs', () => {
@@ -38,7 +37,7 @@ describe ('Application logic', () => {
         };
 
         let state = List.of(url);
-        let nextState = addUrl(state, url);
+        let nextState = addUrl(state, '/index');
 
         expect(nextState).toEqual(state);
     });
@@ -58,6 +57,20 @@ describe ('Application logic', () => {
         expect(nextState).toEqual(List.of({
             url: '/index',
             isUp: true
+        }))
+    });
+
+    it('should update status of a given URL', () => {
+        let state = List.of({
+            url: '/index',
+            status: 'available'
+        });
+
+        let nextState = updateStatus(state, '/index', 'updating');
+
+        expect(nextState).toEqual(List.of({
+            url: '/index',
+            status: 'updating'
         }))
     });
 });
