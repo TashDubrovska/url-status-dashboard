@@ -26,11 +26,13 @@
   },
   "homepage": "https://github.com/TashDubrovska/url-status-dashboard#readme",
   "devDependencies": {
-    "jest": "^20.0.4"
+    "jest": "^20.0.4",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.3"
   },
   "dependencies": {
     "immutable": "^3.8.1",
     "redux": "^3.7.2",
-    "request-promise": "^4.2.1"
+    "socket.io": "^2.0.4"
   }
 }
