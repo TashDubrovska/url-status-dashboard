@@ -1,5 +1,6 @@
 const {List} = require('immutable');
-const request = require('request-promise');
+
+const INITIAL_STATE = List();
 
 function setUrls(state, urls){
     for(let i = 0; i < urls.length; i++){
@@ -36,6 +37,7 @@ function updateStatus(state, url, status){
 }
 
 module.exports = {
+    INITIAL_STATE,
     setUrls,
     addUrl,
     removeUrl,

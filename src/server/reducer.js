@@ -1,6 +1,6 @@
 const core = require('./core')
 
-module.exports = function(state, action){
+module.exports = function(state = core.INITIAL_STATE, action){
     switch(action.type){
         case 'SET_URLS':
             return core.setUrls(state, action.urls);

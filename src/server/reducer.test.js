@@ -2,6 +2,17 @@ const {List} = require('immutable');
 const reducer = require('./reducer');
 
 describe ('Reducer', () => {
+    it('has an initial state', () => {
+        let action  = {type: 'ADD_URL', url: '/test'};
+        let nextState = reducer(undefined, action);
+
+        expect(nextState).toEqual(List.of({
+            url: '/test',
+            status: 'updating'
+
+        }))
+    });
+
     it('handles SET_URLS', () => {
         let initialState = new List();
         let action = {type: 'SET_URLS', urls: ['/test1','/test2']};
@@ -19,16 +30,21 @@ describe ('Reducer', () => {
     });
 
     it('handles ADD_URL', () =>{
-
-        let initialState = new List();
-        let action  = {type: 'ADD_URL', url: '/test'};
+        let initialState = List.of({
+            url: '/test',
+            status: 'updating'
+        });
+        let action  = {type: 'ADD_URL', url: '/test1'};
         let nextState = reducer(initialState, action);
 
         expect(nextState).toEqual(List.of({
             url: '/test',
             status: 'updating'
 
-        }))
+        }, {
+            url: '/test1',
+            status: 'updating'
+       }))
     });
 
     it('handles REMOVE_URL', () => {
@@ -59,7 +75,4 @@ describe ('Reducer', () => {
         }))
 
     })
-
-
-
 });
