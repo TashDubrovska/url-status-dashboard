@@ -21,16 +21,17 @@ export default class AddUrlOverlay extends React.Component {
     }
 
     closeOverlay() {
-        this.setState(prevState => ({
+        console.log('WTF');
+        this.setState({
             overlayClasses: this.computeClasses(false)
-        }));
+        });
     }
 
     render() {
         return (
             <div className={this.state.overlayClasses}>
                 <button className='close' onClick={this.closeOverlay}>Close</button>
-                <label for='url'>URL</label>
+                <label htmlFor='url'>URL</label>
                 <input type='text' id='url' name='url' />
                 <button>Add</button>
             </div>
